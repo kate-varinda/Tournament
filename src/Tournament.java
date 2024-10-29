@@ -10,9 +10,9 @@ public class Tournament {
         String tournamentWinner = playGame(scanner, player1, player2);
         printCongratulations(tournamentWinner);
     }
+
     //playGame accepts Scanner object and the names of two players. It returns name of the winner of this game.
-    public static String playGame(Scanner scanner, String player1, String player2)
-    {
+    public static String playGame(Scanner scanner, String player1, String player2) {
         int gameScore1 = 0;
         int gameScore2 = 0;
         int match = 1;
@@ -32,10 +32,10 @@ public class Tournament {
         }
         return (gameScore1 > gameScore2) ? player1 : player2;
     }
+
     //playRound repeatedly asks the user to input the winner of the next point until the game is over.
     //playRound detects invalid input and gives feedback.
-    public static int[] playRound(Scanner scanner, String player1, String player2)
-    {
+    public static int[] playRound(Scanner scanner, String player1, String player2) {
         String p1 = player1.substring(0, 1).toUpperCase();
         String p2 = player2.substring(0, 1).toUpperCase();
         int points1 = 0, points2 = 0;
@@ -54,6 +54,7 @@ public class Tournament {
         }
         return new int[]{points1, points2};
     }
+
     public static boolean isGameOver(int points1, int points2) { //boolean to control to end game when 1) one player wins 7 points or 2) one player wins 3 points while the other has 0 points.
         final int WINNING_FINAL_SCORE = 7;
         final int LEADING_SCORE = 3;
@@ -62,21 +63,25 @@ public class Tournament {
                 (points1 == LEADING_SCORE && points2 == LOSING_SCORE) || (points2 == LEADING_SCORE
                 && points1 == LOSING_SCORE);
     }
+
     public static void printWelcome() {
         stars();
         System.out.println("Welcome to The All NorthWest Racquet Ball Tournament");
         stars();
     }
+
     public static String enterName(String order) {
         Scanner scanner = new Scanner(System.in);
         System.out.printf("Enter the name of the %s player: ", order);
         return scanner.nextLine();
     }
+
     public static void introducePlayers(String p1, String p2) {
         System.out.printf("Today's Players: %s and %s", p1, p2);
         System.out.println();
         stars();
     }
+
     // printGameScores accepts the names and points of two players and prints the scores.
     public static void printGameScores(String player1, String player2, int point1,
                                        int point2) {
@@ -91,20 +96,23 @@ public class Tournament {
         System.out.printf("%d", point2);
         System.out.println();
     }
+
     // printTournamentScores accepts names and game counts of the two players and print the scores
     public static void printTournamentScores(String player1, String player2, int
             score1, int score2) {
         System.out.println();
         stars();
-        System.out.println("Tournament score (# of games won): "+player1+" "+score1+", "+player2+" "+score2);
-                stars();
+        System.out.println("Tournament score (# of games won): " + player1 + " " + score1 + ", " + player2 + " " + score2);
+        stars();
     }
+
     public static void printCongratulations(String tournamentWinner) {
         System.out.printf("Congratulations! %s won the tournament!",
                 tournamentWinner);
         System.out.println();
         stars();
     }
+
     public static void stars() {
 
         System.out.println("******************************************************************");
